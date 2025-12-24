@@ -62,16 +62,16 @@ export default function ConnectionsPage() {
                             {type === 'sent' && <Badge variant="outline">Pending</Badge>}
                              {type === 'partners' && (
                                 <div className="flex gap-2">
-                                     <Button variant="outline" size="sm" asChild>
-                                        <Link href={`/users/${user.id}`}>
-                                            <>View Profile <ArrowRight className="ml-2 h-4 w-4" /></>
-                                        </Link>
-                                    </Button>
-                                    <Button size="sm" asChild>
-                                        <Link href="/messages">
-                                            <><MessageSquare className="mr-2 h-4 w-4" /> Message</>
-                                        </Link>
-                                    </Button>
+                                     <Link href={`/users/${user.id}`} passHref legacyBehavior>
+                                        <Button variant="outline" size="sm" as="a">
+                                            View Profile <ArrowRight className="ml-2 h-4 w-4" />
+                                        </Button>
+                                    </Link>
+                                    <Link href="/messages" passHref legacyBehavior>
+                                        <Button size="sm" as="a">
+                                            <MessageSquare className="mr-2 h-4 w-4" /> Message
+                                        </Button>
+                                    </Link>
                                 </div>
                             )}
                         </div>

@@ -43,12 +43,12 @@ export default function UserProfilePage({ params }: UserProfilePageProps) {
               <UserPlus className="mr-2 h-4 w-4" />
               Send Connection Request
             </Button>
-            <Button variant="secondary" asChild>
-                <Link href="/messages">
-                    <><MessageSquare className="mr-2 h-4 w-4" />
-                    Message</>
-                </Link>
-            </Button>
+            <Link href="/messages" passHref legacyBehavior>
+                <Button variant="secondary" as="a">
+                    <MessageSquare className="mr-2 h-4 w-4" />
+                    Message
+                </Button>
+            </Link>
           </div>
         </div>
       </div>

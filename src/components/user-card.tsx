@@ -1,4 +1,6 @@
 
+'use client';
+
 import Link from 'next/link';
 import type { User } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -42,12 +44,12 @@ export function UserCard({ user }: { user: User }) {
             <UserPlus className="mr-2 h-4 w-4" />
             Connect
         </Button>
-        <Button asChild variant="ghost" className="flex-1">
-          <Link href={`/users/${user.id}`}>
-            View Profile
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+        <Link href={`/users/${user.id}`} passHref legacyBehavior>
+          <Button as="a" variant="ghost" className="flex-1">
+              View Profile
+              <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

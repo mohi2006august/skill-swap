@@ -42,14 +42,15 @@ export function AppSidebar() {
         <SidebarMenu>
           {navItems.map((item) => (
             <SidebarMenuItem key={item.href}>
-              <Link href={item.href} legacyBehavior passHref>
-                <SidebarMenuButton
-                  isActive={pathname === item.href}
-                  tooltip={{ children: item.label }}
-                >
-                  <item.icon />
-                  <span>{item.label}</span>
-                </SidebarMenuButton>
+                <Link href={item.href} legacyBehavior passHref>
+                  <SidebarMenuButton
+                    as="a"
+                    isActive={pathname === item.href}
+                    tooltip={{ children: item.label }}
+                  >
+                    <item.icon />
+                    <span>{item.label}</span>
+                  </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
           ))}
@@ -60,12 +61,12 @@ export function AppSidebar() {
          <Separator className="my-2" />
          <SidebarMenu>
             <SidebarMenuItem>
-                <Link href="/profile" legacyBehavior passHref>
-                    <SidebarMenuButton isActive={pathname === '/profile'} tooltip={{children: 'Profile'}}>
-                        <UserProfileAvatar src={currentUser.avatar} name={currentUser.name} className="w-6 h-6" />
-                        <span>{currentUser.name}</span>
-                    </SidebarMenuButton>
-                </Link>
+              <Link href="/profile" legacyBehavior passHref>
+                <SidebarMenuButton as="a" isActive={pathname === '/profile'} tooltip={{children: 'Profile'}}>
+                    <UserProfileAvatar src={currentUser.avatar} name={currentUser.name} className="w-6 h-6" />
+                    <span>{currentUser.name}</span>
+                </SidebarMenuButton>
+              </Link>
             </SidebarMenuItem>
             <SidebarMenuItem>
                 <SidebarMenuButton tooltip={{children: 'Log Out'}}>
