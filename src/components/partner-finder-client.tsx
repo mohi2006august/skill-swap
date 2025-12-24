@@ -15,14 +15,14 @@ type PartnerFinderClientProps = {
 
 export function PartnerFinderClient({ users, skills }: PartnerFinderClientProps) {
   const [searchTerm, setSearchTerm] = useState('');
-  const [haveSkillFilter, setHaveSkillFilter] = useState('');
-  const [wantSkillFilter, setWantSkillFilter] = useState('');
+  const [haveSkillFilter, setHaveSkillFilter] = useState('all');
+  const [wantSkillFilter, setWantSkillFilter] = useState('all');
 
   const filteredUsers = useMemo(() => {
     return users.filter(user => {
       const nameMatch = user.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const haveSkillMatch = haveSkillFilter ? user.haveSkills.includes(haveSkillFilter) : true;
-      const wantSkillMatch = wantSkillFilter ? user.wantSkills.includes(wantSkillFilter) : true;
+      const haveSkillMatch = haveSkillFilter !== 'all' ? user.haveSkills.includes(haveSkillFilter) : true;
+      const wantSkillMatch = wantSkillFilter !== 'all' ? user.wantSkills.includes(wantSkillFilter) : true;
       return nameMatch && haveSkillMatch && wantSkillMatch;
     });
   }, [users, searchTerm, haveSkillFilter, wantSkillFilter]);
@@ -45,7 +45,7 @@ export function PartnerFinderClient({ users, skills }: PartnerFinderClientProps)
               <SelectValue placeholder="Filter by skill they have..." />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="">All Skills</SelectItem>
+                <SelectItem value="all">All Skills</SelectItem>
               {skills.map(skill => (
                 <SelectItem key={skill} value={skill}>{skill}</SelectItem>
               ))}
@@ -56,7 +56,7 @@ export function PartnerFinderClient({ users, skills }: PartnerFinderClientProps)
               <SelectValue placeholder="Filter by skill they want..." />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="">All Skills</SelectItem>
+                <SelectItem value="all">All Skills</SelectItem>
               {skills.map(skill => (
                 <SelectItem key={skill} value={skill}>{skill}</SelectItem>
               ))}
