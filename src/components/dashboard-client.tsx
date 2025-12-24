@@ -98,11 +98,11 @@ export function DashboardClient({ currentUser }: DashboardClientProps) {
                   <h4 className="font-semibold">{user.name}</h4>
                   <p className="text-sm text-muted-foreground">{reason}</p>
                 </div>
-                <Link href={`/users/${user.id}`} passHref legacyBehavior>
-                    <Button as="a" variant="ghost" size="sm">
+                <Button asChild variant="ghost" size="sm">
+                  <Link href={`/users/${user.id}`}>
                       View Profile <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             ))}
           </div>

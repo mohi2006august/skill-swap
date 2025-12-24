@@ -61,11 +61,13 @@ export function Header() {
             </div>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <Link href="/profile" passHref legacyBehavior>
-            <DropdownMenuItem as="a">Profile</DropdownMenuItem>
-          </Link>
+          <DropdownMenuItem asChild>
+            <Link href="/profile">
+                Profile
+            </Link>
+          </DropdownMenuItem>
           <DropdownMenuItem>
-            <span>Log out</span>
+            Log out
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -42,9 +42,8 @@ export function AppSidebar() {
         <SidebarMenu>
           {navItems.map((item) => (
             <SidebarMenuItem key={item.href}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href}>
                   <SidebarMenuButton
-                    as="a"
                     isActive={pathname === item.href}
                     tooltip={{ children: item.label }}
                   >
@@ -61,8 +60,8 @@ export function AppSidebar() {
          <Separator className="my-2" />
          <SidebarMenu>
             <SidebarMenuItem>
-              <Link href="/profile" legacyBehavior passHref>
-                <SidebarMenuButton as="a" isActive={pathname === '/profile'} tooltip={{children: 'Profile'}}>
+              <Link href="/profile">
+                <SidebarMenuButton isActive={pathname === '/profile'} tooltip={{children: 'Profile'}}>
                     <UserProfileAvatar src={currentUser.avatar} name={currentUser.name} className="w-6 h-6" />
                     <span>{currentUser.name}</span>
                 </SidebarMenuButton>
