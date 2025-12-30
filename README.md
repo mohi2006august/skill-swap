@@ -10,3 +10,19 @@ The Find a Partner interface allows for targeted discovery. Students can browse 
 Our system also provides a comprehensive view of all network interactions. Within the Connections tab, you can monitor outgoing requests and manage incoming invitations to ensure a structured and productive collaborative experience. ...
 
 Once a partnership is established, integrated messaging facilitates real-time coordination. SkillSwap transforms individual learning into a collective, tech-driven success. Thank you.
+
+
+Frontend: React.js / Next.js
+
+
+​Backend: Node.js / FastAPI
+
+
+​Database: PostgreSQL / MongoDB
+
+
+​AI Engine: Scikit-learn (for matching algorithms)
+
+
+
+
